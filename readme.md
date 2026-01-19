@@ -25,8 +25,7 @@ legger kodingen her for bruk etterpå:
     </a>
     </div>
     </div>
-
-</div>
+    </div>
 
 <!--Supabase-->
 
