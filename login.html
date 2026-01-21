@@ -13,6 +13,11 @@
     />
   </head>
   <body>
+    <!-- Loading bar -->
+    <div class="progress-bar-container">
+      <div class="progress-bar-fill" id="progressBar"></div>
+    </div>
+
     <!-- Toppmeny-->
     <nav class="navbar navbar-expand-md navbar-dark bg-black">
       <div class="container">
@@ -53,40 +58,5 @@
         </form>
       </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script>
-      // Initialiser Supabase
-      const SUPABASE_URL = 'YOUR_SUPABASE_URL';
-      const SUPABASE_KEY = 'YOUR_SUPABASE_ANON_KEY';
-      const { createClient } = window.supabase;
-      const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
-
-      document.getElementById('loginForm').addEventListener('submit', async function(e) {
-        e.preventDefault();
-        
-        const email = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-        const errorMessage = document.getElementById('errorMessage');
-        
-        try {
-          // Logg inn med Supabase
-          const { data, error } = await supabase.auth.signInWithPassword({
-            email: email,
-            password: password
-          });
-          
-          if (error) {
-            errorMessage.textContent = 'Ugyldig e-post eller passord';
-            errorMessage.style.display = 'block';
-          } else {
-            // Omdirigering til index.html ved vellykket login
-            window.location.href = 'index.html';
-          }
-        } catch (err) {
-          errorMessage.textContent = 'En feil oppstod. Prøv igjen.';
-          errorMessage.style.display = 'block';
-        }
-      });
-    </script>
-  </body></html>
+  </body>
+  </html>
