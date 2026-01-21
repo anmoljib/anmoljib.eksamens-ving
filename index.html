@@ -13,6 +13,11 @@
     />
   </head>
   <body>
+    <!-- Loading bar -->
+    <div class="progress-bar-container">
+      <div class="progress-bar-fill" id="progressBar"></div>
+    </div>
+
 <!-- Toppmeny--> 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
       <div class="container">
@@ -95,11 +100,36 @@
 <!-- Footer -->
 <footer class="border-top py-3 mt-4">
       <div class="container d-flex justify-content-between align-items-center">
-        <small class="text-muted">© 2026 Portal</small>
-        <a href="#mainContent" class="small">Til toppen</a>
+        <small class="text-muted">© 2026 Anmol 2IM</small>
+        <a href="#mainContent" class="small"></a>
       </div>
     </footer>
 
 
+    <script>
+      // Loading bar animasjon
+      window.addEventListener('load', function() {
+        const progressBar = document.getElementById('progressBar');
+        let progress = 0;
+
+        // loading progress
+        const interval = setInterval(function() {
+          progress += Math.random() * 30;
+          if (progress > 90) progress = 90;
+          progressBar.style.width = progress + '%';
+        }, 200);
+
+        // ferdig loading når siden fully loads 
+        window.addEventListener('load', function() {
+          clearInterval(interval);
+          progressBar.style.width = '100%';
+          // Fade out smoothly
+          setTimeout(function() {
+            progressBar.style.transition = 'opacity 1s ease-out';
+            progressBar.style.opacity = '0';
+          }, 800);
+        });
+      });
+    </script>
   </body>
 </html>
