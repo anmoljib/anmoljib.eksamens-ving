@@ -41,7 +41,7 @@
         </p>
 
  <!--Driftstøttte-->
-
+    <div class="row g-4">
     <div class="col-12 col-md-4">
     <div class="card h-100">
     <div class="card-body d-flex flex-column">
@@ -95,7 +95,7 @@
               </div>
             </div>
           </div>
-       
+    </div>
         
 <!-- Footer -->
 <footer class="border-top py-3 mt-4">
@@ -108,27 +108,29 @@
 
     <script>
       // Loading bar animasjon
-      window.addEventListener('load', function() {
-        const progressBar = document.getElementById('progressBar');
-        let progress = 0;
+      const progressBar = document.getElementById('progressBar');
+      let progress = 0;
+      let interval;
 
-        // loading progress
-        const interval = setInterval(function() {
+      // Start loading progress når siden starter å laste
+      window.addEventListener('DOMContentLoaded', function() {
+        interval = setInterval(function() {
           progress += Math.random() * 30;
           if (progress > 90) progress = 90;
           progressBar.style.width = progress + '%';
         }, 200);
+      });
 
-        // ferdig loading når siden fully loads 
-        window.addEventListener('load', function() {
-          clearInterval(interval);
-          progressBar.style.width = '100%';
-          // Fade out smoothly
-          setTimeout(function() {
-            progressBar.style.transition = 'opacity 1s ease-out';
-            progressBar.style.opacity = '0';
-          }, 800);
-        });
+      // Ferdig loading når siden fullt lastet
+      window.addEventListener('load', function() {
+        clearInterval(interval);
+        progressBar.style.width = '100%';
+        progressBar.style.transition = 'opacity 1s ease-out';
+        
+        // Fade out etter 800ms
+        setTimeout(function() {
+          progressBar.style.opacity = '0';
+        }, 800);
       });
     </script>
   </body>
