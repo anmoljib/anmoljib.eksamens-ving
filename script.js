@@ -5,44 +5,88 @@ const SUPABASE_KEY =
 // Lag Supabase-klient
 const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-// Knapper (sjekk at de finnes på siden før vi legger til event listeners)
-const loginBtn = document.getElementById("loginBtn");
-const registerBtn = document.getElementById("registerBtn");
-if (loginBtn) loginBtn.addEventListener("click", login);
-if (registerBtn) registerBtn.addEventListener("click", register);
+// LOGG INN
+async function login() {
+  const email = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+  const errorMessage = document.getElementById("errorMessage");
+
+  if (!email || !password) {
+    if (errorMessage) {
+      errorMessage.textContent = "Vennligst fyll inn både e-post og passord";
+      errorMessage.style.display = "block";
+    }
+    return;
+  }
+
+  try {
+    const { data, error } = await supabaseClient.auth.signInWithPassword({
+      email,
+      password,
+    });
+
+    if (error) {
+      if (errorMessage) {
+        errorMessage.textContent = "Feil: " + error.message;
+        errorMessage.style.display = "block";
+      }
+      console.error("Login error:", error);
+      return;
+    }
+
+    if (data.user) {
+      console.log("Login vellykket!");
+      // Redirect to index.html after successful login
+      window.location.href = "index.html";
+    }
+  } catch (err) {
+    if (errorMessage) {
+      errorMessage.textContent = "En feil oppstod: " + err.message;
+      errorMessage.style.display = "block";
+    }
+    console.error("Exception:", err);
+  }
+}
 
 // REGISTRER
 async function register() {
   const email = document.getElementById("username").value;
   const password = document.getElementById("password").value;
+  const errorMessage = document.getElementById("errorMessage");
 
-  const { error } = await supabaseClient.auth.signUp({
-    email,
-    password,
-  });
-
-  if (error) {
-    alert(error.message);
+  if (!email || !password) {
+    if (errorMessage) {
+      errorMessage.textContent = "Vennligst fyll inn både e-post og passord";
+      errorMessage.style.display = "block";
+    }
     return;
   }
 
-  window.location.href = "index.html";
-}
+  try {
+    const { error } = await supabaseClient.auth.signUp({
+      email,
+      password,
+    });
 
-// LOGG INN
-async function login() {
-  const email = document.getElementById("username").value;
-  const password = document.getElementById("password").value;
+    if (error) {
+      if (errorMessage) {
+        errorMessage.textContent = "Feil: " + error.message;
+        errorMessage.style.display = "block";
+      }
+      console.error("Register error:", error);
+      return;
+    }
 
-  const { error } = await supabaseClient.auth.signInWithPassword({
-    email,
-    password,
-  });
-
-  if (error) {
-    alert("Feil e-post eller passord");
-    return;
+    if (errorMessage) {
+      errorMessage.style.display = "none";
+    }
+    console.log("Registrering vellykket!");
+    window.location.href = "index.html";
+  } catch (err) {
+    if (errorMessage) {
+      errorMessage.textContent = "En feil oppstod: " + err.message;
+      errorMessage.style.display = "block";
+    }
+    console.error("Exception:", err);
   }
-
-  window.location.href = "index.html";
 }
