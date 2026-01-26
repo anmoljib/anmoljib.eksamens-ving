@@ -23,11 +23,7 @@
       <div class="container">
         <a class="navbar-brand" href="#">Anmol - 2IM</a>
         <div class="d-flex align-items-center gap-2">
-          <!--logg inn knapp-->
-          <button id="authOpenBtn" class="btn btn-outline-light btn-sm">
-            Logg inn
-          </button>
-          <span id="authUserBadge" class="text-white-50 small"></span>
+
         </div>
       </div>
     </nav>
@@ -217,13 +213,23 @@
             return;
           }
 
-          console.log('Registrering vellykket! E-post bekreftelses-lenke sendt til: ' + email);
-          errorMessage.style.display = 'none';
+          console.log('Registrering vellykket! Bekreftelses-epost sendt til: ' + email);
           
-          // Redirect to index.html after successful registration
-          // E-post med bekreftelses-lenke er sendt automatisk
-          window.location.href = 'index.html';
+          // Show success message - user must confirm email first
+          errorMessage.style.color = 'green';
+          errorMessage.textContent = 'Registrering vellykket! Sjekk e-posten din for bekreftelses-lenke. Du må bekrefte e-posten før du kan logge inn.';
+          errorMessage.style.display = 'block';
+          
+          // Clear the form
+          document.getElementById('registerForm').reset();
+          
+          // Switch back to login tab after 3 seconds
+          setTimeout(() => {
+            switchTab('login');
+            errorMessage.style.color = '';
+          }, 3000);
         } catch (err) {
+          errorMessage.style.color = '';
           errorMessage.textContent = 'En feil oppstod: ' + err.message;
           errorMessage.style.display = 'block';
           console.error('Exception:', err);
