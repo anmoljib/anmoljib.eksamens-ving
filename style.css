@@ -9,6 +9,31 @@ footer {
   padding: 10px 20px;
   text-align: left;
 }
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #333;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+main {
+  padding: 20px;
+}
+h1 {
+  color: #333;
+}
+p {
+  line-height: 1.6;
+  color: #666;
+}
+footer p {
+  margin: 0;
+  color: #999;
+}
+footer a {
+  color: #666;
+  text-decoration: none;
 }
 .container.text-center {
   max-width: 1500px;
@@ -60,5 +85,43 @@ footer {
   height: 100%;
   background: linear-gradient(to right, #1f6aff, #1f6aff);
   width: 0;
-  transition: width 0.3s ease;
+  transition: width 0.5s ease;
+}
+
+.hover-card {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.hover-card:hover {
+  background-color: #e3f2fd;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.expand-card {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.expand-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.expand-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  margin-top: 0;
+}
+
+.expand-card.active .expand-content {
+  max-height: 500px;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.expand-label {
+  color: #000 !important;
 }

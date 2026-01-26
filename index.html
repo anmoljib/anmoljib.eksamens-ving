@@ -40,6 +40,55 @@
           Kompetansemålene jeg har valgt og hvorfor jeg har valgt disse.
         </p>
 
+<!-- Tre fagene -->
+    <div class="row g-4 mb-4">
+      <div class="col-12 col-md-4">
+        <div class="card h-100 expand-card" onclick="toggleExpand(this)">
+          <div class="card-body">
+            <h3 class="h6 mb-2"><strong>🖥️ Utvikling</strong></h3>
+            <div class="expand-content">
+              <p class="small mb-2"><strong class="expand-label">Hva jeg valgte:</strong></p>
+              <p class="small text-muted mb-3">1. Vurdere fordeler og ulemper ved ulike programmeringsspråk og velge og anvende relevante programmeringsspråk og algoritmer i eget arbeid<br> 
+                2. Beskrive og anvende relevante versjonskontrollsystemer i utviklingsprosjekter</p>
+              
+              <p class="small mb-2"><strong class="expand-label">Hvorfor:</strong></p>
+              <p class="small text-muted">Jeg er interessert i å bygge apper og nettsider som gjør livet enklere for folk. Det kombinerer kreativitet med problemløsing.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4">
+        <div class="card h-100 expand-card" onclick="toggleExpand(this)">
+          <div class="card-body">
+            <h3 class="h6 mb-2"><strong>🛠️ Driftstøtte</strong></h3>
+            <div class="expand-content">
+              <p class="small mb-2"><strong class="expand-label">Hva jeg valgte:</strong></p>
+              <p class="small text-muted mb-3">Systemadministrasjon, vedlikehold og overvåking av IT-infrastruktur</p>
+              
+              <p class="small mb-2"><strong class="expand-label">Hvorfor:</strong></p>
+              <p class="small text-muted">Jeg liker å forstå hvordan systemer fungerer og sikre at alt kjører stabilt. Det er viktig arbeid bak kulissene.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4">
+        <div class="card h-100 expand-card" onclick="toggleExpand(this)">
+          <div class="card-body">
+            <h3 class="h6 mb-2"><strong>👥 Brukerstøtte</strong></h3>
+            <div class="expand-content">
+              <p class="small mb-2"><strong class="expand-label">Hva jeg valgte:</strong></p>
+              <p class="small text-muted mb-3">Hjelpe brukere, løse problemer og gi teknisk veiledning</p>
+              
+              <p class="small mb-2"><strong class="expand-label">Hvorfor:</strong></p>
+              <p class="small text-muted">Jeg liker å hjelpe folk å forstå teknologi. God kommunikasjon og kundeservice er essensielt i IT.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
  <!--Driftstøttte-->
     <div class="row g-4">
     <div class="col-12 col-md-4">
@@ -66,35 +115,27 @@
       Viser innlogging eller lagring/henting av data med Supabase og
       JavaScript.
       </p>
-      <a
-      href="supabase-eksempel.html"
-      class="btn btn-primary btn-sm mt-auto"
-      >
+      <a href="supabase-eksempel.html" class="btn btn-primary btn-sm mt-auto">
         Åpne underside
-          </a>
-        </div>
-      </div>
+      </a>
     </div>
+  </div>
+</div>
 
 <!-- Valgfri kompetanse -->
-
-          <div class="col-12 col-md-4">
-            <div class="card h-100">
-              <div class="card-body d-flex flex-column">
-                <h3 class="h6 mb-2">Valgfri kompetanse</h3>
-                <p class="small text-muted mb-3">
-                  F.eks. backend, API, mer avansert layout eller annen relevant
-                  teknologi.
-                </p>
-                <a
-                  href="backend-eksempel.html"
-                  class="btn btn-primary btn-sm mt-auto"
-                >
-                  Åpne underside
-                </a>
-              </div>
-            </div>
-          </div>
+<div class="col-12 col-md-4">
+  <div class="card h-100">
+    <div class="card-body d-flex flex-column">
+      <h3 class="h6 mb-2">Valgfri kompetanse</h3>
+      <p class="small text-muted mb-3">
+        F.eks. backend, API, mer avansert layout eller annen relevant teknologi.
+      </p>
+      <a href="backend-eksempel.html" class="btn btn-primary btn-sm mt-auto">
+        Åpne underside
+      </a>
+    </div>
+  </div>
+</div>
     </div>
         
 <!-- Footer -->
@@ -110,28 +151,46 @@
       // Loading bar animasjon
       const progressBar = document.getElementById('progressBar');
       let progress = 0;
-      let interval;
 
-      // Start loading progress når siden starter å laste
-      window.addEventListener('DOMContentLoaded', function() {
-        interval = setInterval(function() {
-          progress += Math.random() * 30;
-          if (progress > 90) progress = 90;
-          progressBar.style.width = progress + '%';
-        }, 200);
-      });
-
-      // Ferdig loading når siden fullt lastet
-      window.addEventListener('load', function() {
-        clearInterval(interval);
-        progressBar.style.width = '100%';
-        progressBar.style.transition = 'opacity 1s ease-out';
+      // Start animating immediately
+      if (progressBar) {
+        // Set initial width to show the bar
+        progressBar.style.width = '10%';
         
-        // Fade out etter 800ms
-        setTimeout(function() {
-          progressBar.style.opacity = '0';
-        }, 800);
-      });
+        // Animate progress
+        const interval = setInterval(function() {
+          progress += Math.random() * 25;
+          if (progress > 85) progress = 85;
+          progressBar.style.width = progress + '%';
+        }, 300);
+
+        // When page is fully loaded
+        window.addEventListener('load', function() {
+          clearInterval(interval);
+          
+          // Complete the progress bar
+          progressBar.style.width = '100%';
+          
+          // Fade out after 1.5 seconds
+          setTimeout(function() {
+            progressBar.style.opacity = '0';
+          }, 1500);
+        });
+      }
+
+      // Expand card toggle function - only one open at a time
+      function toggleExpand(cardElement) {
+        // Close all other expand-cards
+        const allCards = document.querySelectorAll('.expand-card');
+        allCards.forEach(card => {
+          if (card !== cardElement) {
+            card.classList.remove('active');
+          }
+        });
+        
+        // Toggle the clicked card
+        cardElement.classList.toggle('active');
+      }
     </script>
   </body>
 </html>
