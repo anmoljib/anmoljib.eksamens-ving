@@ -125,3 +125,29 @@ footer a {
 .expand-label {
   color: #000 !important;
 }
+
+.password-input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-input-group .form-control {
+  flex: 1;
+  padding-right: 40px;
+}
+
+.btn-toggle-password {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 5px 10px;
+  color: #666;
+}
+
+.btn-toggle-password:hover {
+  color: #333;
+}
