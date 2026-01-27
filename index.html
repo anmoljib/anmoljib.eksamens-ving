@@ -28,7 +28,6 @@
           </div>
         </div>
       </nav>
-
       <!-- Introduksjon/Velkommen -->
       <section class="py-5 bg-white">
         <div class="container">
@@ -40,8 +39,8 @@
                 </h1>
                 <p class="lead text-muted">
                   Denne nettsiden viser hva jeg kan innen Utvikling, Driftstøtte
-                  og Brukerstøtte. Her dokumenterer jeg min kompetanse gjennom
-                  praktiske eksempler og prosjekter.
+                  og Brukerstøtte. Jeg viser min kompetanse gjennom praktiske
+                  eksempler og prosjekter.
                 </p>
               </div>
               <div class="card shadow-sm">
@@ -267,7 +266,8 @@
 
           // fader ut etter 1,5sek
           setTimeout(function () {
-            progressBar.style.opacity = "0";
+            const container = progressBar.parentElement;
+            container.classList.add("hidden");
           }, 1500);
         });
       }
