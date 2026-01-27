@@ -2,6 +2,9 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 header,
 footer {
@@ -27,6 +30,9 @@ p {
   line-height: 1.6;
   color: #666;
 }
+footer {
+  margin-top: auto;
+}
 footer p {
   margin: 0;
   color: #999;
@@ -34,6 +40,10 @@ footer p {
 footer a {
   color: #666;
   text-decoration: none;
+}
+footer a:hover {
+  color: #333;
+  text-decoration: underline;
 }
 .container.text-center {
   max-width: 1500px;
@@ -89,7 +99,9 @@ footer a {
 }
 
 .hover-card {
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
   cursor: pointer;
 }
 
