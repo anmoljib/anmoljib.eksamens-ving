@@ -18,7 +18,7 @@
       <div class="progress-bar-fill" id="progressBar"></div>
     </div>
 
-<!-- Toppmeny--> 
+<!-- Toppmeny og navbar--> 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
       <div class="container">
         <a class="navbar-brand" href="#">Anmol - 2IM</a>
@@ -37,7 +37,7 @@
           Kompetansemålene jeg har valgt og hvorfor jeg har valgt disse.
         </p>
 
-<!-- Tre fagene -->
+<!-- Tre kompetanser -->
     <div class="row g-4 mb-4">
       <div class="col-12 col-md-4">
         <div class="card h-100 expand-card" onclick="toggleExpand(this)">
@@ -85,15 +85,18 @@
         </div>
       </div>
     </div>
+      </div>
+    </header>
 
-<header class="py-4 bg-light border-bottom">
+    <!--Header-->
+    <header class="py-4 bg-light border-bottom">
       <div class="container">
-        <h1 class="h3 mb-2">Kompetansemålene</h1>
+        <h1 class="h3 mb-2">Fagene</h1>
         <p class="mb-3">
-          Kompetansemålene jeg har valgt og hvorfor jeg har valgt disse.
+          
         </p>
 
- <!--Driftstøttte-->
+        <!--Driftstøttte-->
     <div class="row g-4">
     <div class="col-12 col-md-4">
     <div class="card h-100">
@@ -156,33 +159,31 @@
       const progressBar = document.getElementById('progressBar');
       let progress = 0;
 
-      // Start animating immediately
+      // Starter animajonen med engang
       if (progressBar) {
-        // Set initial width to show the bar
         progressBar.style.width = '10%';
         
-        // Animate progress
         const interval = setInterval(function() {
           progress += Math.random() * 25;
           if (progress > 85) progress = 85;
           progressBar.style.width = progress + '%';
         }, 300);
 
-        // When page is fully loaded
+        // Når siden er ferdig lastet
         window.addEventListener('load', function() {
           clearInterval(interval);
           
-          // Complete the progress bar
+          // fullfør loading baren
           progressBar.style.width = '100%';
           
-          // Fade out after 1.5 seconds
+          // fader ut etter 1,5sek
           setTimeout(function() {
             progressBar.style.opacity = '0';
           }, 1500);
         });
       }
 
-      // Expand card toggle function - only one open at a time
+      // Åpnke 
       function toggleExpand(cardElement) {
         // Close all other expand-cards
         const allCards = document.querySelectorAll('.expand-card');
