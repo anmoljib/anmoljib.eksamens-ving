@@ -266,8 +266,7 @@
 
           // fader ut etter 1,5sek
           setTimeout(function () {
-            const container = progressBar.parentElement;
-            container.classList.add("hidden");
+            progressBar.style.opacity = "0";
           }, 1500);
         });
       }
