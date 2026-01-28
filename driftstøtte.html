@@ -78,12 +78,13 @@
                 </div>
                 <div class="card-body">
                   <p class="small text-muted mb-3">
-                    Eksempel på dokumentasjon av arbeidsprosess:
+                    Hvordan legge til, commite og pushe filer i Git:
                   </p>
                   <div class="bg-dark text-light p-3 rounded">
                     <pre
                       class="mb-0"
-                    ><code>SYSTEMARKITEKTUR - Portfolio-nettsiden
+                    ><code>
+SYSTEMARKITEKTUR - Portfolio-nettsiden
 =====================================
 
 Frontend:
@@ -110,5 +111,30 @@ Deployment:
           </div>
         </div>
       </section>
+    </div>
+
+    <script>
+      // Loading bar animasjon
+      const progressBar = document.getElementById("progressBar");
+      let progress = 0;
+
+      if (progressBar) {
+        progressBar.style.width = "10%";
+
+        const interval = setInterval(function () {
+          progress += Math.random() * 25;
+          if (progress > 85) progress = 85;
+          progressBar.style.width = progress + "%";
+        }, 300);
+
+        window.addEventListener("load", function () {
+          clearInterval(interval);
+          progressBar.style.width = "100%";
+          setTimeout(function () {
+            progressBar.style.opacity = "0";
+          }, 1500);
+        });
+      }
+    </script>
   </body>
 </html>
