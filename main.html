@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HvaJegKan - Ekamensøving</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- Loading bar -->
+    <div class="progress-bar-container">
+      <div class="progress-bar-fill" id="progressBar"></div>
+    </div>
+
+    <div class="page-wrapper">
+      <!-- Toppmeny og navbar-->
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="#">Anmol - 2IM</a>
+          <div class="d-flex align-items-center gap-2">
+            <span class="navbar-text text-light">IT Portfolio</span>
+          </div>
+        </div>
+      </nav>
+      <!-- Introduksjon/Velkommen -->
+      <section class="py-5 bg-white">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12 col-lg-10">
+              <div class="text-center mb-4">
+                <h1 class="display-5 fw-bold mb-3">
+                  Velkommen til min IT Portfolio
+                </h1>
+                <p class="lead text-muted">
+                  Denne nettsiden viser hva jeg kan innen Utvikling, Driftstøtte
+                  og Brukerstøtte. Jeg viser min kompetanse gjennom praktiske
+                  eksempler og prosjekter.
+                </p>
+              </div>
+              <div class="card shadow-sm">
+                <div class="card-body p-4">
+                  <h2 class="h5 mb-3">Hva du finner her:</h2>
+                  <ul class="list-unstyled">
+                    <li class="mb-2">
+                      ✓ <strong>Kompetansemål</strong> jeg har jobbet med i
+                      fagene
+                    </li>
+                    <li class="mb-2">
+                      ✓ <strong>Kodeeksempler</strong> og funksjonalitet jeg har
+                      laget
+                    </li>
+                    <li class="mb-2">
+                      ✓ <strong>Dokumentasjon</strong> av arbeidsprosesser og
+                      løsninger
+                    </li>
+                    <li class="mb-2">
+                      ✓ <strong>Praktiske demonstrasjoner</strong> av mine
+                      ferdigheter
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Header-->
+      <header class="py-4 bg-light border-bottom">
+        <div class="container">
+          <h1 class="h3 mb-2">Kompetansemålene</h1>
+          <p class="mb-3">
+            Kompetansemålene jeg har valgt og hvorfor jeg har valgt disse.
+          </p>
+
+          <!-- Tre kompetanser -->
+          <div class="row g-4 mb-4">
+            <div class="col-12 col-md-4">
+              <div class="card h-100 expand-card" onclick="toggleExpand(this)">
+                <div class="card-body">
+                  <h3 class="h6 mb-2"><strong>🖥️ Utvikling</strong></h3>
+                  <div class="expand-content">
+                    <p class="small mb-2">
+                      <strong class="expand-label">Hva jeg valgte:</strong>
+                    </p>
+                    <p class="small text-muted mb-3">
+                      1. Vurdere fordeler og ulemper ved ulike
+                      programmeringsspråk og velge og anvende relevante
+                      programmeringsspråk og algoritmer i eget arbeid<br />
+                      2. Beskrive og anvende relevante versjonskontrollsystemer
+                      i utviklingsprosjekter
+                    </p>
+
+                    <p class="small mb-2">
+                      <strong class="expand-label">Hvorfor:</strong>
+                    </p>
+                    <p class="small text-muted">
+                      Jeg er interessert i å bygge apper og nettsider som gjør
+                      livet enklere for folk. Det kombinerer kreativitet med
+                      problemløsing.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-4">
+              <div class="card h-100 expand-card" onclick="toggleExpand(this)">
+                <div class="card-body">
+                  <h3 class="h6 mb-2"><strong>🛠️ Driftstøtte</strong></h3>
+                  <div class="expand-content">
+                    <p class="small mb-2">
+                      <strong class="expand-label">Hva jeg valgte:</strong>
+                    </p>
+                    <p class="small text-muted mb-3">
+                      Systemadministrasjon, vedlikehold og overvåking av
+                      IT-infrastruktur
+                    </p>
+
+                    <p class="small mb-2">
+                      <strong class="expand-label">Hvorfor:</strong>
+                    </p>
+                    <p class="small text-muted">
+                      Jeg liker å forstå hvordan systemer fungerer og sikre at
+                      alt kjører stabilt. Det er viktig arbeid bak kulissene.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-4">
+              <div class="card h-100 expand-card" onclick="toggleExpand(this)">
+                <div class="card-body">
+                  <h3 class="h6 mb-2"><strong>👥 Brukerstøtte</strong></h3>
+                  <div class="expand-content">
+                    <p class="small mb-2">
+                      <strong class="expand-label">Hva jeg valgte:</strong>
+                    </p>
+                    <p class="small text-muted mb-3">
+                      Hjelpe brukere, løse problemer og gi teknisk veiledning
+                    </p>
+
+                    <p class="small mb-2">
+                      <strong class="expand-label">Hvorfor:</strong>
+                    </p>
+                    <p class="small text-muted">
+                      Jeg liker å hjelpe folk å forstå teknologi. God
+                      kommunikasjon og kundeservice er essensielt i IT.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!--Header-->
+      <header class="py-4 bg-light border-bottom">
+        <div class="container">
+          <h1 class="h3 mb-2">Fagene</h1>
+
+          <!--Driftstøttte-->
+          <div class="row g-4">
+            <div class="col-12 col-md-4">
+              <div class="card h-100">
+                <div class="card-body d-flex flex-column">
+                  <h3 class="h6 mb-2"><strong>Driftstøtte</strong></h3>
+                  <p class="small text-muted mb-3">
+                    Presentasjon av hvem du er, faglig bakgrunn og hva portalen
+                    brukes til.
+                  </p>
+                  <a
+                    href="driftstøtte.html"
+                    class="btn btn-primary btn-sm mt-auto"
+                  >
+                    Åpne underside
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!--Brukerstøtte-->
+            <div class="col-12 col-md-4">
+              <div class="card h-100">
+                <div class="card-body d-flex flex-column">
+                  <h3 class="h6 mb-2"><strong>Brukerstøtte</strong></h3>
+                  <p class="small text-muted mb-3">
+                    Feilsøking og retting av feil ved hjelp av
+                    feilsøkingsstrategier og relevante rammeverk.
+                  </p>
+                  <a
+                    href="brukerstøtte.html"
+                    class="btn btn-primary btn-sm mt-auto"
+                  >
+                    Åpne underside
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Utvikling -->
+            <div class="col-12 col-md-4">
+              <div class="card h-100">
+                <div class="card-body d-flex flex-column">
+                  <h3 class="h6 mb-2"><strong>Utvikling</strong></h3>
+                  <p class="small text-muted mb-3">
+                    Programmeringsspråk, versjonskontroll og relevante
+                    algoritmer i mitt arbeid.
+                  </p>
+                  <a href="#" class="btn btn-primary btn-sm mt-auto">
+                    Åpne underside
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-top py-3 mt-4">
+      <div class="container d-flex justify-content-between align-items-center">
+        <small class="text-muted">© 2026 Anmol 2IM</small>
+        <a
+          href="https://github.com/anmoljib/anmoljib.eksamens-ving"
+          target="_blank"
+          class="small github-link"
+          >GitHub</a
+        >
+      </div>
+    </footer>
+
+    <script>
+      // Loading bar animasjon
+      const progressBar = document.getElementById("progressBar");
+      let progress = 0;
+
+      // Starter animajonen med engang
+      if (progressBar) {
+        progressBar.style.width = "10%";
+
+        const interval = setInterval(function () {
+          progress += Math.random() * 25;
+          if (progress > 85) progress = 85;
+          progressBar.style.width = progress + "%";
+        }, 300);
+
+        // Når siden er ferdig lastet
+        window.addEventListener("load", function () {
+          clearInterval(interval);
+
+          // fullfør loading baren
+          progressBar.style.width = "100%";
+
+          // fader ut etter 1,5sek
+          setTimeout(function () {
+            progressBar.style.opacity = "0";
+          }, 1500);
+        });
+      }
+
+      // Åpnke
+      function toggleExpand(cardElement) {
+        // Close all other expand-cards
+        const allCards = document.querySelectorAll(".expand-card");
+        allCards.forEach((card) => {
+          if (card !== cardElement) {
+            card.classList.remove("active");
+          }
+        });
+
+        // Toggle the clicked card
+        cardElement.classList.toggle("active");
+      }
+    </script>
+  </body>
+</html>

@@ -22,7 +22,7 @@
       <!-- Toppmeny og navbar -->
       <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <div class="container">
-          <a class="navbar-brand" href="index.html">Anmol - 2IM</a>
+          <a class="navbar-brand" href="main.html">Anmol - 2IM</a>
           <div class="d-flex align-items-center gap-2">
             <span class="navbar-text text-light">IT Portfolio</span>
           </div>
@@ -45,27 +45,32 @@
                 <strong>Kompetansemål 1:</strong> Planlegge og dokumentere
                 arbeidsprosesser og IT-løsninger
               </h2>
-<!-- Planleggingsdokumenter -->
+              <!-- Planleggingsdokumenter -->
               <div class="card mb-4">
                 <div class="card-header bg-light">
                   <h3 class="h6 mb-0">📋 Planleggingsdokumenter</h3>
                 </div>
                 <div class="card-body">
                   <p>
-                    Jeg viser hvordan jeg jobber før jeg bygger løsningen. Dette inkluderer blant annet:
+                    Jeg viser hvordan jeg jobber før jeg bygger løsningen. Dette
+                    inkluderer blant annet:
                   </p>
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item">
-                      <strong>Planen min:</strong> hva jeg skal gjøre, når og med hvilke ressurser
+                      <strong>Planen min:</strong> hva jeg skal gjøre, når og
+                      med hvilke ressurser
                     </li>
                     <li class="list-group-item">
-                      <strong>Systemoversikt:</strong> hvordan delene henger sammen
+                      <strong>Systemoversikt:</strong> hvordan delene henger
+                      sammen
                     </li>
                     <li class="list-group-item">
-                      <strong>Arbeidssteg:</strong> hva jeg gjør i riktig rekkefølge
+                      <strong>Arbeidssteg:</strong> hva jeg gjør i riktig
+                      rekkefølge
                     </li>
                     <li class="list-group-item">
-                      <strong>Risikovurdering:</strong> mulige problemer og hvordan jeg kan løse dem
+                      <strong>Risikovurdering:</strong> mulige problemer og
+                      hvordan jeg kan løse dem
                     </li>
                   </ul>
                 </div>
@@ -74,36 +79,36 @@
               <!-- Dokumentasjonseksempel -->
               <div class="card mb-4">
                 <div class="card-header bg-light">
-                  <h3 class="h6 mb-0">📄 Dokumentasjonseksempel - Gitversjonkontroll </h3>
+                  <h3 class="h6 mb-0">
+                    📄 Dokumentasjonseksempel - Gitversjonkontroll
+                  </h3>
                 </div>
                 <div class="card-body">
                   <p class="small text-muted mb-3">
                     Hvordan legge til, commite og pushe filer i Git:
                   </p>
                   <div class="bg-dark text-light p-3 rounded">
-                    <pre
-                      class="mb-0"
-                    ><code>
-SYSTEMARKITEKTUR - Portfolio-nettsiden
-=====================================
+                    <pre class="mb-0"><code># Git versjonskontroll
 
-Frontend:
-- HTML/CSS/JavaScript for UI
-- Bootstrap for responsiv design
-- Local storage for data
+**Å "stage" en fil**
 
-Backend (fremtid):
-- Node.js/Express for API
-- Database: PostgreSQL/Supabase
+git add .
+# adder til alle filer
 
-Sikkerhet:
-- HTTPS
-- Input validation
-- CORS-policy
+git add "filnavn", filtype
+# adder kun den ene filen
 
-Deployment:
-- GitHub Pages eller egen server
-- CI/CD pipeline</code></pre>
+**Å commite en fil**
+
+git commit -m "Melding om hva du har gjort her"
+# commiter ALLE filer du har "addet" og legger til melding
+
+**Å pushe alle endringene til server (laste opp alle filer til GitHub)**
+
+git push
+# pusher alle filer du har addet, så commited
+
+HVORDAN LAGE "EN KOMMANDO FOR ALT SAMMEN"</code></pre>
                   </div>
                 </div>
               </div>
@@ -112,7 +117,123 @@ Deployment:
         </div>
       </section>
     </div>
+    <!-- Kompetansemål 2 -->
+    <section class="py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-lg-10">
+            <h2 class="h4 mb-4">
+              <strong>Kompetansemål 2:</strong> Forenkle og automatisere
+              arbeidsprosesser
+            </h2>
+            <!-- Automatiseringsprosjekter -->
+            <div class="card mb-4">
+              <div class="card-header bg-light">
+                <h3 class="h6 mb-0">⚙️ Automatiseringsprosjekter</h3>
+              </div>
+              <div class="card-body">
+                <p class="mb-3">
+                  Jeg automatiserer gjentakende oppgaver for å øke effektivitet:
+                </p>
+                <!-- Eksempel 1 -->
+                <div class="mb-4">
+                  <h5 class="text-dark">1. Build & Deploy Automation</h5>
+                  <p class="small text-muted mb-2">
+                    <strong>Hva:</strong> Automatisert bygge og deployment via
+                    GitHub Actions
+                  </p>
+                  <p class="small text-muted mb-2">
+                    <strong>Hvorfor:</strong> Unngår manuelle feil, sparer tid
+                  </p>
+                  <p class="small text-muted">
+                    <strong>Resultat:</strong> Deploy på 30 sekunder i stedet
+                    for 5 minutter
+                  </p>
+                </div>
+                <!-- Eksempel 2 -->
+                <div class="mb-4">
+                  <h5 class="text-dark">2. Testing Automation</h5>
+                  <p class="small text-muted mb-2">
+                    <strong>Hva:</strong> Automatiske tester ved hver commit
+                  </p>
+                  <p class="small text-muted mb-2">
+                    <strong>Hvorfor:</strong> Fanger opp feil tidlig
+                  </p>
+                  <p class="small text-muted">
+                    <strong>Resultat:</strong> 95% færre bugs i produksjon
+                  </p>
+                </div>
+                <!-- Eksempel 3 -->
+                <div>
+                  <h5 class="text-dark">3. Backup & Monitoring</h5>
+                  <p class="small text-muted mb-2">
+                    <strong>Hva:</strong> Automatisk backup og
+                    sikkerhetskontroller
+                  </p>
+                  <p class="small text-muted mb-2">
+                    <strong>Hvorfor:</strong> Sikrer data og systemstabilitet
+                  </p>
+                  <p class="small text-muted">
+                    <strong>Resultat:</strong> 0% datafall, oppetid 99.9%
+                  </p>
+                </div>
+              </div>
+            </div>
 
+            <!-- Verktøy brukt -->
+            <div class="card">
+              <div class="card-header bg-light">
+                <h3 class="h6 mb-0">🛠️ Verktøy & Teknologi</h3>
+              </div>
+              <div class="card-body">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <h6>Automatiseringsverktøy:</h6>
+                    <ul class="list-unstyled small">
+                      <li>✓ GitHub Actions</li>
+                      <li>✓ Bash scripts</li>
+                      <li>✓ npm automation</li>
+                      <li>✓ Task scheduling</li>
+                    </ul>
+                  </div>
+                  <div class="col-md-6">
+                    <h6>Monitoring & Logging:</h6>
+                    <ul class="list-unstyled small">
+                      <li>✓ Error tracking</li>
+                      <li>✓ Performance monitoring</li>
+                      <li>✓ Log aggregation</li>
+                      <li>✓ Alerting systems</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+   <!-- Tilbake til hovedside -->
+      <section class="py-4 bg-light border-top">
+        <div class="container">
+          <a href="main.html" class="btn btn-outline-primary">
+            ← Tilbake til hovedside
+          </a>
+        </div>
+      </section>
+    </div>
+    <!-- Footer -->
+    <footer class="border-top py-3 mt-4">
+      <div class="container d-flex justify-content-between align-items-center">
+        <small class="text-muted">© 2026 Anmol 2IM</small>
+        <a
+          href="https://github.com/anmoljib/anmoljib.eksamens-ving"
+          target="_blank"
+          class="small github-link"
+          >GitHub</a
+        >
+      </div>
+    </footer>
     <script>
       // Loading bar animasjon
       const progressBar = document.getElementById("progressBar");
