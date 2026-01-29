@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Utvikling - IT Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- Loading bar -->
+    <div class="progress-bar-container">
+      <div class="progress-bar-fill" id="progressBar"></div>
+    </div>
+
+    <div class="page-wrapper">
+      <!-- Toppmeny og navbar -->
+      <nav class="navbar navbar-expand-md navbar-dark bg-gradient-primary">
+        <div class="container">
+          <a class="navbar-brand" href="main.html">Anmol - 2IM</a>
+          <div class="d-flex align-items-center gap-2">
+            <span class="navbar-text text-light">IT Portfolio</span>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Header -->
+      <header class="py-4 bg-light border-bottom">
+        <div class="container">
+          <h1 class="h3 mb-2">💻 Utvikling</h1>
+          <p class="mb-3">
+            Vurdere og anvende programmeringsspråk, versjonskontroll og
+            algoritmer i utviklingsprosjekter
+          </p>
+        </div>
+      </header>
+
+      <!-- Kompetansemål -->
+      <section class="py-5 border-bottom">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-lg-10">
+              <h2 class="h4 mb-4">
+                <strong>Kompetansemål:</strong>
+              </h2>
+              <ul class="list-group list-group-flush mb-4">
+                <li class="list-group-item">
+                  1. Vurdere fordeler og ulemper ved ulike programmeringsspråk
+                  og velge og anvende relevante programmeringsspråk og
+                  algoritmer i eget arbeid
+                </li>
+                <li class="list-group-item">
+                  2. Beskrive og anvende relevante versjonskontrollsystemer i
+                  utviklingsprosjekter
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Programmeringsspråk -->
+      <section class="py-5 border-bottom">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-lg-10">
+              <h2 class="h4 mb-4">📝 Programmeringsspråk i prosjektet</h2>
+
+              <!-- JavaScript -->
+              <div class="card mb-4">
+                <div class="card-header bg-light">
+                  <h3 class="h6 mb-0">JavaScript</h3>
+                </div>
+                <div class="card-body">
+                  <h5 class="mb-3">Hva bruker jeg JavaScript til?</h5>
+                  <p class="mb-3">
+                    JavaScript brukes til å lage interaktivitet på nettsiden,
+                    som login system, tabs, og dynamisk innhold.
+                  </p>
+
+                  <h5 class="mb-3">Fordeler:</h5>
+                  <ul class="list-group list-group-flush mb-3">
+                    <li class="list-group-item">
+                      ✅ Kjører direkte i nettleseren, ingen installasjon
+                      nødvendig
+                    </li>
+                    <li class="list-group-item">
+                      ✅ Perfekt for interaktive nettsider
+                    </li>
+                    <li class="list-group-item">
+                      ✅ Stort økosystem av biblioteker og rammeverk
+                    </li>
+                  </ul>
+
+                  <h5 class="mb-3">Ulemper:</h5>
+                  <ul class="list-group list-group-flush mb-4">
+                    <li class="list-group-item">
+                      ❌ Koden er synlig for alle i nettleseren
+                    </li>
+                    <li class="list-group-item">
+                      ❌ Kan være treg ved store datamengder
+                    </li>
+                  </ul>
+
+                  <h5 class="mb-3">Praktisk eksempel - Login funksjon:</h5>
+                  <pre class="bg-dark text-light p-3 rounded"><code>
+create table if not exists profiles (
+  id uuid primary key references auth.users on delete cascade,
+  role text not null default 'user',  -- standardrolle er "user"
+  created_at timestamptz default now()
+);
+
+alter table profiles enable row level security;
+
+drop policy if exists "read-own-profile" on profiles;
+create policy "read-own-profile"
+on profiles for select using (id = auth.uid());
+
+create or replace function public.handle_new_user()
+returns trigger as $$
+begin
+  insert into public.profiles (id, role)
+  values (
+    new.id,
+    case when lower(new.email) = lower('35jibanm@stud.akademiet.no') then 'admin' else 'user' end
+  );
+  return new;
+end;
+$$ language plpgsql security definer;
+
+drop trigger if exists on_auth_user_created on auth.users;
+create trigger on_auth_user_created
+after insert on auth.users
+for each row execute function public.handle_new_user();
+  }
+}</code></pre>
+                </div>
+              </div>
+
+              <!-- SQL -->
+              <div class="card mb-4">
+                <div class="card-header bg-light">
+                  <h3 class="h6 mb-0">💾 SQL (Structured Query Language)</h3>
+                </div>
+                <div class="card-body">
+                  <h5 class="mb-3">Hva bruker jeg SQL til?</h5>
+                  <p class="mb-3">
+                    SQL brukes til å kommunisere med databasen (Supabase),
+                    opprette tabeller, og hente/lagre brukerdata.
+                  </p>
+
+                  <h5 class="mb-3">Fordeler:</h5>
+                  <ul class="list-group list-group-flush mb-3">
+                    <li class="list-group-item">
+                      ✅ Standardspråk for databaser - fungerer på mange
+                      plattformer
+                    </li>
+                    <li class="list-group-item">
+                      ✅ Effektiv til å hente og behandle store datamengder
+                    </li>
+                    <li class="list-group-item">
+                      ✅ Sikrer dataintegritet med constraints
+                    </li>
+                  </ul>
+
+                  <h5 class="mb-3">Ulemper:</h5>
+                  <ul class="list-group list-group-flush mb-4">
+                    <li class="list-group-item">
+                      ❌ Kan bli komplekst ved mange tabeller og relasjoner
+                    </li>
+                    <li class="list-group-item">
+                      ❌ Krever god planlegging av databasestruktur
+                    </li>
+                  </ul>
+
+                  <h5 class="mb-3">Praktisk eksempel -bruker tabell:</h5>
+                  <pre
+                    class="bg-dark text-light p-3 rounded"
+                  ><code>CREATE TABLE users (
+REATE TABLE brukere (
+    id SERIAL PRIMARY KEY,
+    navn VARCHAR(50),
+    epost VARCHAR(100) UNIQUE,
+    passord VARCHAR(255),
+    rolle VARCHAR(20) DEFAULT 'student'
+);
+
+INSERT INTO brukere (navn, epost, passord, rolle)
+VALUES ('Anmol','anmol@example.com','hemmelig','student');
+
+SELECT * FROM brukere;</code></pre>
+                </div>
+              </div>
+
+              <!-- HTML/CSS -->
+              <div class="card mb-4">
+                <div class="card-header bg-light">
+                  <h3 class="h6 mb-0">🎨 HTML & CSS (+ Bootstrap)</h3>
+                </div>
+                <div class="card-body">
+                  <h5 class="mb-3">Hva bruker jeg HTML/CSS til?</h5>
+                  <p class="mb-3">
+                    HTML strukturerer innholdet på nettsiden, mens CSS styler og
+                    gir layout. Bootstrap brukes for responsivt design og
+                    ferdige komponenter.
+                  </p>
+
+                  <h5 class="mb-3">Fordeler:</h5>
+                  <ul class="list-group list-group-flush mb-3">
+                    <li class="list-group-item">
+                      ✅ HTML strukturerer innholdet tydelig
+                    </li>
+                    <li class="list-group-item">
+                      ✅ CSS gir full kontroll over design
+                    </li>
+                    <li class="list-group-item">
+                      ✅ Bootstrap sparer tid med ferdiglagde komponenter
+                    </li>
+                    <li class="list-group-item">
+                      ✅ Responsivt design - fungerer på mobil og PC
+                    </li>
+                  </ul>
+
+                  <h5 class="mb-3">Ulemper:</h5>
+                  <ul class="list-group list-group-flush mb-4">
+                    <li class="list-group-item">
+                      ❌ Ikke dynamisk uten JavaScript
+                    </li>
+                    <li class="list-group-item">
+                      ❌ CSS kan bli komplekst med mange elementer
+                    </li>
+                  </ul>
+
+                  <h5 class="mb-3">Praktisk eksempel - Gradient styling:</h5>
+                  <pre
+                    class="bg-dark text-light p-3 rounded"
+                  ><code>.bg-gradient-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
+}</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Versjonskontroll -->
+      <section class="py-5 border-bottom">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-lg-10">
+              <h2 class="h4 mb-4">🔀 Versjonskontroll med Git/GitHub</h2>
+
+              <!-- Hva er Git og GitHub -->
+              <div class="card mb-4">
+                <div class="card-header bg-light">
+                  <h3 class="h6 mb-0">📚 Hva er Git og GitHub?</h3>
+                </div>
+                <div class="card-body">
+                  <p class="mb-3">
+                    Versjonskontroll lar meg spore endringer i koden over tid,
+                    samarbeide med andre, og gå tilbake til tidligere versjoner
+                    hvis noe går galt.
+                  </p>
+
+                  <div class="row">
+                    <div class="col-md-6">
+                      <h5 class="mb-3">Git</h5>
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                          Versjonskontrollsystem som kjører lokalt
+                        </li>
+                        <li class="list-group-item">
+                          Sporer alle endringer i prosjektet
+                        </li>
+                        <li class="list-group-item">
+                          Lar deg lage "commits" (lagringspunkter)
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-md-6">
+                      <h5 class="mb-3">GitHub</h5>
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                          Nettbasert plattform for Git-repositories
+                        </li>
+                        <li class="list-group-item">Lagrer koden i skyen</li>
+                        <li class="list-group-item">
+                          Gjør det enkelt å samarbeide
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Git Workflow -->
+              <div class="card mb-4">
+                <div class="card-header bg-light">
+                  <h3 class="h6 mb-0">🔄 Min arbeidsflyt med Git</h3>
+                </div>
+                <div class="card-body">
+                  <h5 class="mb-3">Typisk arbeidsflyt:</h5>
+                  <ol class="mb-4">
+                    <li class="mb-2">
+                      <strong>Endre kode</strong> - gjør endringer i filene
+                    </li>
+                    <li class="mb-2">
+                      <strong>Stage</strong> - merk filene som skal lagres
+                      (<code>git add</code>)
+                    </li>
+                    <li class="mb-2">
+                      <strong>Commit</strong> - lagre endringene med en beskjed
+                      (<code>git commit</code>)
+                    </li>
+                    <li class="mb-2">
+                      <strong>Push</strong> - last opp til GitHub (<code
+                        >git push</code
+                      >)
+                    </li>
+                  </ol>
+
+                  <div class="alert alert-info">
+                    <h6 class="mb-2">📝 Eksempel på en typisk git-sekvens:</h6>
+                    <pre
+                      class="bg-dark text-light p-3 rounded mb-0"
+                    ><code>git status                              # Se hvilke filer som er endret
+git add .                               # Legg til alle endrede filer
+git commit -m "Lagt til login-funksjon" # Lagre med beskjed
+git push origin main                    # Last opp til GitHub</code></pre>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Viktige Git-kommandoer -->
+              <div class="card mb-4">
+                <div class="card-header bg-light">
+                  <h3 class="h6 mb-0">💻 Viktigste Git-kommandoer</h3>
+                </div>
+                <div class="card-body">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                      <code>git init</code> - Initialisere Git i et prosjekt
+                    </li>
+                    <li class="list-group-item">
+                      <code>git status</code> - Sjekke status (hvilke filer er
+                      endret)
+                    </li>
+                    <li class="list-group-item">
+                      <code>git add .</code> - Legge til alle endrede filer
+                    </li>
+                    <li class="list-group-item">
+                      <code>git commit -m "melding"</code> - Lagre endringer med
+                      beskjed
+                    </li>
+                    <li class="list-group-item">
+                      <code>git push origin main</code> - Laste opp til GitHub
+                    </li>
+                    <li class="list-group-item">
+                      <code>git pull origin main</code> - Hente siste versjon
+                      fra GitHub
+                    </li>
+                    <li class="list-group-item">
+                      <code>git quick</code> - ⚡ Mitt alias: add + commit +
+                      push i én kommando!
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Fordeler med versjonskontroll -->
+              <div class="card mb-4">
+                <div class="card-header bg-light">
+                  <h3 class="h6 mb-0">✅ Fordeler med versjonskontroll</h3>
+                </div>
+                <div class="card-body">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                      📜 <strong>Historikk:</strong> Kan se alle endringer som
+                      er gjort og hvem som gjorde dem
+                    </li>
+                    <li class="list-group-item">
+                      ⏪ <strong>Tilbakestilling:</strong> Kan gå tilbake til en
+                      tidligere versjon hvis noe går galt
+                    </li>
+                    <li class="list-group-item">
+                      👥 <strong>Samarbeid:</strong> Flere personer kan jobbe på
+                      samme prosjekt samtidig
+                    </li>
+                    <li class="list-group-item">
+                      🔒 <strong>Sikkerhet:</strong> Koden er trygt lagret i
+                      skyen (backup)
+                    </li>
+                    <li class="list-group-item">
+                      🚀 <strong>Deploy:</strong> Enkel oppdatering av
+                      live-nettsiden via GitHub Pages
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer med tilbake-knapp -->
+      <footer class="py-4 bg-light border-top">
+        <div class="container">
+          <div class="d-flex justify-content-between align-items-center">
+            <a href="main.html" class="btn btn-outline-primary"
+              >← Tilbake til hovedside</a
+            >
+            <p class="mb-0 text-muted">Anmol - IT Portfolio 2026</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-k32bHJXy7C5ZNjNbULhJlddSQqQbvAG8Kh11f8P6eVFJzk0JL+SZWDkN9s7y4K0F"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
