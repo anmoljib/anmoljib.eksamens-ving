@@ -5,10 +5,51 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%);
 }
 
 .page-wrapper {
   flex: 1;
+}
+
+/* Gradient header styling */
+.bg-gradient-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.intro-section {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+/* Kompetanse cards med farger */
+.card-utvikling {
+  border-left: 4px solid #667eea;
+  transition: all 0.3s ease;
+}
+
+.card-utvikling:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
+}
+
+.card-driftstotte {
+  border-left: 4px solid #f093fb;
+  transition: all 0.3s ease;
+}
+
+.card-driftstotte:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(240, 147, 251, 0.3);
+}
+
+.card-brukerstotte {
+  border-left: 4px solid #4facfe;
+  transition: all 0.3s ease;
+}
+
+.card-brukerstotte:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(79, 172, 254, 0.3);
 }
 
 header,
@@ -219,4 +260,79 @@ footer a:hover {
 
 .btn-toggle-password:hover {
   color: #333;
+}
+
+/* Animated cards */
+.card {
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Colorful badges for headers */
+.badge-custom {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  color: white;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+/* Icon styling */
+.icon-large {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+/* Colorful section backgrounds */
+.section-alternate {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+/* Button hover effects */
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+.btn-outline-primary {
+  border-color: #667eea;
+  color: #667eea;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-color: #667eea;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+/* Footer gradient */
+footer {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white !important;
+}
+
+footer .text-muted {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+footer .github-link {
+  color: white !important;
+}
+
+footer .github-link:hover {
+  color: rgba(255, 255, 255, 0.9) !important;
 }
