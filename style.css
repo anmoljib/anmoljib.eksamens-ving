@@ -170,6 +170,7 @@ footer a:hover {
 .expand-card {
   cursor: pointer;
   transition: all 0.3s ease;
+  overflow: hidden;
 }
 
 .expand-card:hover {
@@ -177,14 +178,13 @@ footer a:hover {
 }
 
 .expand-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease;
-  margin-top: 0;
+  display: none;
+  margin: 0;
+  padding: 0;
 }
 
 .expand-card.active .expand-content {
-  max-height: 500px;
+  display: block;
   margin-top: 15px;
   padding-top: 15px;
   border-top: 1px solid #e0e0e0;
